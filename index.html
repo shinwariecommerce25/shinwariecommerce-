@@ -1,95 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shinwari E-commerce LLC</title>
   <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
-    body {line-height:1.6; background:#f9f9f9; color:#333;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; }
 
-    /* Header */
-    header {position:relative; text-align:center; color:white;}
-    header video {
-      width:100%; height:100vh; object-fit:cover;
-      position:absolute; top:0; left:0; z-index:-1;
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: rgba(0, 33, 71, 0.9);
+      padding: 15px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      z-index: 1000;
     }
-    .overlay {
-      background:rgba(0,0,0,0.6); position:absolute; top:0; left:0; width:100%; height:100%;
-      display:flex; flex-direction:column; justify-content:center; align-items:center;
-      animation: fadeIn 2s ease-in-out;
+    header h1 { color: #fff; font-size: 20px; }
+    nav a {
+      color: #fff; margin-left: 20px; text-decoration: none;
+      transition: color 0.3s;
     }
-    header img {width:200px; margin-bottom:20px; animation: bounceIn 2s;}
-    header h1 {font-size:2.5rem; margin-bottom:10px; animation: slideIn 2s;}
-    header p {font-size:1.2rem; animation: slideIn 3s;}
+    nav a:hover { color: #00bcd4; }
 
-    /* Cards */
-    .cards {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px; padding:40px; background:#fff;
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .hero-content {
+      position: relative;
+      height: 100%;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .hero a {
+      background: #00bcd4;
+      color: #fff; padding: 12px 24px;
+      border-radius: 6px; text-decoration: none;
+      transition: background 0.3s;
+    }
+    .hero a:hover { background: #0097a7; }
+
+    /* Services */
+    .services {
+      padding: 60px 20px;
+      display: flex; flex-wrap: wrap;
+      justify-content: center;
+      background: #f9f9f9;
     }
     .card {
-      background:#f1f1f1; padding:20px; border-radius:10px; text-align:center;
-      box-shadow:0 4px 8px rgba(0,0,0,0.1);
-      transition:transform 0.3s, box-shadow 0.3s;
-      opacity:0; transform:translateY(50px);
-      animation: fadeUp 1s forwards;
+      background: #fff;
+      width: 280px; margin: 15px; padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
     }
-    .card:nth-child(1){animation-delay:0.3s;}
-    .card:nth-child(2){animation-delay:0.6s;}
-    .card:nth-child(3){animation-delay:0.9s;}
-    .card:hover {transform:translateY(-8px); box-shadow:0 8px 16px rgba(0,0,0,0.2);}
-    .card h3 {margin-bottom:10px;}
+    .card:hover { transform: translateY(-10px); }
+    .card h3 { margin-bottom: 10px; color: #002147; }
 
     /* Contact */
     .contact {
-      padding:40px; background:#eee; text-align:center;
+      padding: 60px 20px;
+      background: #eee;
+      text-align: center;
     }
-    .contact h2 {margin-bottom:20px; animation: fadeIn 2s;}
-    .contact form {max-width:500px; margin:0 auto; display:flex; flex-direction:column;}
+    .contact form {
+      max-width: 500px; margin: auto;
+      display: flex; flex-direction: column;
+    }
     .contact input, .contact textarea {
-      margin:10px 0; padding:10px; border:1px solid #ccc; border-radius:5px;
+      margin: 10px 0; padding: 12px;
+      border: 1px solid #ccc; border-radius: 5px;
     }
     .contact button {
-      background:#333; color:white; border:none; padding:12px; cursor:pointer; border-radius:5px;
-      transition:background 0.3s;
+      background: #002147; color: #fff;
+      padding: 12px; border: none; border-radius: 5px;
+      cursor: pointer; transition: background 0.3s;
     }
-    .contact button:hover {background:#555;}
-    #successMessage {display:none; color:green; margin-top:10px; font-weight:bold;}
+    .contact button:hover { background: #004080; }
+    .contact-info {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #333;
+    }
 
     /* Footer */
     footer {
-      background:#222; color:white; padding:20px; text-align:center;
+      background: #111; color: #aaa;
+      text-align: center; padding: 15px;
     }
-    footer p {margin:5px 0;}
-
-    /* Animations */
-    @keyframes fadeIn {from{opacity:0;} to{opacity:1;}}
-    @keyframes slideIn {from{transform:translateY(-30px); opacity:0;} to{transform:translateY(0); opacity:1;}}
-    @keyframes bounceIn {
-      0%{transform:scale(0.5); opacity:0;}
-      60%{transform:scale(1.2); opacity:1;}
-      100%{transform:scale(1);}
-    }
-    @keyframes fadeUp {from{opacity:0; transform:translateY(50px);} to{opacity:1; transform:translateY(0);}}
   </style>
 </head>
 <body>
-
-  <!-- Header with Video Background -->
+  <!-- Navbar -->
   <header>
-    <video autoplay muted loop playsinline>
-      <source src="programming.mp4" type="video/mp4">
-    </video>
-    <div class="overlay">
-      <img src="logo.png" alt="Shinwari Logo">
-      <h1>Shinwari E-commerce LLC</h1>
-      <p>Innovating Digital Commerce for a Better Tomorrow</p>
-    </div>
+    <h1>Shinwari E-commerce</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <!-- Services Cards -->
-  <section class="cards">
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <video autoplay muted loop>
+      <source src="programming.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <h2>Welcome to Shinwari E-commerce LLC</h2>
+      <p>Your trusted partner for online business solutions</p>
+      <a href="#services">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
     <div class="card">
       <h3>Web Development</h3>
       <p>Modern, responsive, and scalable websites built with cutting-edge technologies.</p>
@@ -104,21 +147,20 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="contact">
+  <!-- Contact -->
+  <section class="contact" id="contact">
     <h2>Contact Us</h2>
-    <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
       <button type="submit">Send Message</button>
     </form>
-    <p id="successMessage">✅ Your message has been sent successfully!</p>
-    <div class="info">
-      <p><strong>Email:</strong> contact@shinwariecommerce.com</p>
-      <p><strong>Phone:</strong> +1 737 000 1234</p>
-      <p><strong>Fax:</strong> +1 737 000 5678</p>
-      <p><strong>Address:</strong> Austin, Texas, USA</p>
+    <div class="contact-info">
+      <p>Email: contact@shinwariecommerce.com</p>
+      <p>Phone: +1 737 000 1234</p>
+      <p>Fax: +1 737 000 5678</p>
+      <p>Address: Austin, Texas, USA</p>
     </div>
   </section>
 
@@ -126,21 +168,5 @@
   <footer>
     <p>© 2025 Shinwari E-commerce LLC. All Rights Reserved.</p>
   </footer>
-
-  <!-- Script -->
-  <script>
-    const form = document.getElementById("contactForm");
-    const successMessage = document.getElementById("successMessage");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      successMessage.style.display = "block";
-      setTimeout(() => {
-        successMessage.style.display = "none";
-      }, 5000);
-      form.reset();
-    });
-  </script>
-
 </body>
 </html>
