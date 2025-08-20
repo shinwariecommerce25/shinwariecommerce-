@@ -1,114 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shinwari E-commerce LLC</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8f9fa;
-      color: #333;
-      text-align: center;
-    }
-    header {
-      background: #004080;
-      color: white;
-      padding: 20px;
-    }
-    header img {
-      display: block;
-      margin: 0 auto 10px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 26px;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    main {
-      padding: 30px;
-    }
-    footer {
-      background: #222;
-      color: #ddd;
-      padding: 20px;
-      margin-top: 30px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Shinwari E-commerce Logo" style="height:70px;">
-    <h1 id="title">Shinwari E-commerce LLC</h1>
+    <img src="assets/logo.png" alt="Shinwari Logo" class="logo">
     <nav>
-      <label for="language">🌍 Language:</label>
-      <select id="language" onchange="setLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="ar">العربية</option>
-        <option value="fr">Français</option>
-        <option value="de">Deutsch</option>
-        <option value="es">Español</option>
-      </select>
+      <ul>
+        <li><a href="#home" data-key="home">Home</a></li>
+        <li><a href="#services" data-key="services">Services</a></li>
+        <li><a href="#about" data-key="about">About</a></li>
+        <li><a href="#contact" data-key="contact">Contact</a></li>
+      </ul>
     </nav>
+    <div class="lang-switcher">
+      <button onclick="setLanguage('en')">EN</button> |
+      <button onclick="setLanguage('ar')">AR</button> |
+      <button onclick="setLanguage('fr')">FR</button>
+    </div>
   </header>
 
   <main>
-    <h2 id="welcome">Welcome to Shinwari E-commerce</h2>
-    <p id="description">
-      We provide professional e-commerce solutions for businesses around the world.
-    </p>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <h1 data-key="welcome">Welcome to Shinwari E-commerce LLC</h1>
+      <p data-key="tagline">Your trusted partner in modern online business solutions.</p>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+      <h2 data-key="ourServices">Our Services</h2>
+      <ul>
+        <li data-key="s1">Custom E-commerce Website Development</li>
+        <li data-key="s2">Secure Online Payment Integration</li>
+        <li data-key="s3">Digital Marketing & SEO</li>
+        <li data-key="s4">24/7 Technical Support</li>
+      </ul>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <h2 data-key="aboutUs">About Us</h2>
+      <p data-key="aboutText">
+        Shinwari E-commerce LLC is dedicated to empowering businesses through innovative digital solutions.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <h2 data-key="getInTouch">Get in Touch</h2>
+      <p data-key="contactText">Email us at: <a href="mailto:contact@shinwariecommerce.com">contact@shinwariecommerce.com</a></p>
+    </section>
   </main>
 
   <footer>
-    <p id="contact-text">Email: contact@shinwariecommerce.com</p>
-    <p>&copy; 2025 Shinwari E-commerce LLC. All rights reserved.</p>
+    <p>&copy; 2025 Shinwari E-commerce LLC</p>
   </footer>
-
-  <script>
-    const translations = {
-      en: {
-        title: "Shinwari E-commerce LLC",
-        welcome: "Welcome to Shinwari E-commerce",
-        description: "We provide professional e-commerce solutions for businesses around the world.",
-        contactText: "Email: contact@shinwariecommerce.com"
-      },
-      ar: {
-        title: "شركة شينواري للتجارة الإلكترونية",
-        welcome: "مرحباً بكم في شينواري للتجارة الإلكترونية",
-        description: "نحن نقدم حلول التجارة الإلكترونية الاحترافية للشركات حول العالم.",
-        contactText: "البريد الإلكتروني: contact@shinwariecommerce.com"
-      },
-      fr: {
-        title: "Shinwari E-commerce LLC",
-        welcome: "Bienvenue chez Shinwari E-commerce",
-        description: "Nous proposons des solutions de commerce électronique professionnelles pour les entreprises du monde entier.",
-        contactText: "Email : contact@shinwariecommerce.com"
-      },
-      de: {
-        title: "Shinwari E-commerce GmbH",
-        welcome: "Willkommen bei Shinwari E-commerce",
-        description: "Wir bieten professionelle E-Commerce-Lösungen für Unternehmen weltweit.",
-        contactText: "E-Mail: contact@shinwariecommerce.com"
-      },
-      es: {
-        title: "Shinwari E-commerce LLC",
-        welcome: "Bienvenido a Shinwari E-commerce",
-        description: "Ofrecemos soluciones profesionales de comercio electrónico para empresas de todo el mundo.",
-        contactText: "Correo electrónico: contact@shinwariecommerce.com"
-      }
-    };
-
-    function setLanguage(lang) {
-      document.getElementById("title").textContent = translations[lang].title;
-      document.getElementById("welcome").textContent = translations[lang].welcome;
-      document.getElementById("description").textContent = translations[lang].description;
-      document.getElementById("contact-text").textContent = translations[lang].contactText;
-    }
-  </script>
 </body>
 </html>
