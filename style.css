@@ -1,141 +1,49 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
   line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
 }
 
-/* Container */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* Header */
 header {
-  background: #111827;
-  color: #fff;
-  padding: 15px 0;
-}
-
-.header-container {
+  background: #0a3d62;
+  color: white;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
 }
 
 .logo {
   height: 50px;
 }
 
-.nav-links {
+nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
 }
 
-.nav-links a {
-  color: #fff;
+nav a {
+  color: white;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #3b82f6;
-}
-
-/* Hero */
-.hero {
-  background: linear-gradient(to right, #2563eb, #3b82f6);
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.btn {
-  display: inline-block;
-  background: #fff;
-  color: #2563eb;
-  padding: 10px 20px;
-  border-radius: 6px;
   font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.btn:hover {
-  background: #1e40af;
-  color: #fff;
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #1e90ff, #00c6ff);
+  color: white;
 }
 
-/* About */
-.about {
-  padding: 60px 20px;
+.services, .about, .contact {
+  padding: 50px 20px;
   text-align: center;
 }
 
-.about h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #2563eb;
-}
-
-/* Services */
-.services {
-  padding: 60px 20px;
-  background: #f3f4f6;
-  text-align: center;
-}
-
-.services h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-  color: #2563eb;
-}
-
-.service-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
-}
-
-/* Footer */
 footer {
-  background: #111827;
-  color: #fff;
   text-align: center;
-  padding: 15px 0;
-  margin-top: 50px;
+  padding: 20px;
+  background: #0a3d62;
+  color: white;
 }
