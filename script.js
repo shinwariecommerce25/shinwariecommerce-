@@ -1,10 +1,8 @@
-document.getElementById("signupForm").addEventListener("submit", function(e) {
+دdocument.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const currency = document.getElementById("currency").value;
-
-  document.getElementById("result").innerText =
-    `Thank you, ${name}! You registered with ${email} and chose ${currency}.`;
+  document.getElementById("successMessage").style.display = "block";
+  setTimeout(() => {
+    document.getElementById("successMessage").style.display = "none";
+  }, 5000);
+  this.reset();
 });
