@@ -1,120 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shinwari E-commerce LLC</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; }
+    * {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
 
-    /* Navbar */
+    body {color:#fff; background:#111;}
+
     header {
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      background: rgba(0, 33, 71, 0.9);
-      padding: 15px 40px;
-      display: flex; justify-content: space-between; align-items: center;
-      z-index: 1000;
+      position:fixed; top:0; left:0; width:100%; 
+      background:#002b45; padding:15px 50px; 
+      display:flex; justify-content:space-between; align-items:center;
+      z-index:1000;
     }
-    header h1 { color: #fff; font-size: 20px; }
+    header h2 {color:#fff;}
     nav a {
-      color: #fff; margin-left: 20px; text-decoration: none;
-      transition: color 0.3s;
+      color:#fff; margin:0 15px; text-decoration:none; font-weight:bold;
+      transition:0.3s;
     }
-    nav a:hover { color: #00bcd4; }
+    nav a:hover {color:#00bcd4;}
 
     /* Hero Section */
     .hero {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
+      position:relative; height:100vh; display:flex; justify-content:center; align-items:center; text-align:center;
     }
     .hero video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: -1;
+      position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1;
     }
-    .hero-content {
-      position: relative;
-      height: 100%;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      text-align: center;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.4);
+    .hero h1 {font-size:40px; animation:fadeInDown 2s;}
+    .hero p {margin:15px 0; font-size:18px; animation:fadeInUp 2s;}
+    .btn {
+      background:#00bcd4; color:#fff; padding:12px 25px; border:none; border-radius:5px;
+      font-size:16px; cursor:pointer; transition:0.3s;
     }
-    .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
-    .hero a {
-      background: #00bcd4;
-      color: #fff; padding: 12px 24px;
-      border-radius: 6px; text-decoration: none;
-      transition: background 0.3s;
-    }
-    .hero a:hover { background: #0097a7; }
+    .btn:hover {background:#008fa1;}
 
-    /* Services */
-    .services {
-      padding: 60px 20px;
-      display: flex; flex-wrap: wrap;
-      justify-content: center;
-      background: #f9f9f9;
+    /* About Section */
+    section {padding:80px 50px; text-align:center;}
+    #about {background:#1a1a1a;}
+    #about h2 {font-size:32px; margin-bottom:20px;}
+    #about p {max-width:800px; margin:auto; line-height:1.6;}
+
+    /* Services Section */
+    #services {background:#111;}
+    .cards {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; margin-top:30px;
     }
     .card {
-      background: #fff;
-      width: 280px; margin: 15px; padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.3s;
+      background:#1a1a1a; padding:30px; border-radius:10px;
+      transition:transform 0.3s, background 0.3s;
     }
-    .card:hover { transform: translateY(-10px); }
-    .card h3 { margin-bottom: 10px; color: #002147; }
+    .card:hover {transform:translateY(-10px); background:#222;}
+    .card i {
+      font-size:40px; color:#00bcd4; margin-bottom:15px;
+      animation:pulse 2s infinite;
+    }
+    .card h3 {margin-bottom:15px; color:#00bcd4;}
 
-    /* Contact */
-    .contact {
-      padding: 60px 20px;
-      background: #eee;
-      text-align: center;
+    /* Contact Section */
+    #contact {background:#1a1a1a;}
+    form {max-width:600px; margin:auto; display:flex; flex-direction:column;}
+    input, textarea {
+      margin:10px 0; padding:12px; border:none; border-radius:5px;
     }
-    .contact form {
-      max-width: 500px; margin: auto;
-      display: flex; flex-direction: column;
-    }
-    .contact input, .contact textarea {
-      margin: 10px 0; padding: 12px;
-      border: 1px solid #ccc; border-radius: 5px;
-    }
-    .contact button {
-      background: #002147; color: #fff;
-      padding: 12px; border: none; border-radius: 5px;
-      cursor: pointer; transition: background 0.3s;
-    }
-    .contact button:hover { background: #004080; }
-    .contact-info {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #333;
-    }
+    button {margin-top:10px;}
 
     /* Footer */
     footer {
-      background: #111; color: #aaa;
-      text-align: center; padding: 15px;
+      background:#002b45; text-align:center; padding:20px; font-size:14px;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {opacity:0; transform:translateY(-50px);} to {opacity:1; transform:translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);}
+    }
+    @keyframes pulse {
+      0% {transform:scale(1);}
+      50% {transform:scale(1.1);}
+      100% {transform:scale(1);}
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+
   <header>
-    <h1>Shinwari E-commerce</h1>
+    <h2>Shinwari E-commerce</h2>
     <nav>
       <a href="#home">Home</a>
-      <a href="#services">Services</a>
       <a href="#about">About</a>
+      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -124,49 +105,63 @@
     <video autoplay muted loop>
       <source src="programming.mp4" type="video/mp4">
     </video>
-    <div class="hero-content">
-      <h2>Welcome to Shinwari E-commerce LLC</h2>
+    <div>
+      <h1>Welcome to Shinwari E-commerce LLC</h1>
       <p>Your trusted partner for online business solutions</p>
-      <a href="#services">Get Started</a>
+      <button class="btn">Get Started</button>
     </div>
   </section>
 
+  <!-- About Us -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Shinwari E-commerce LLC is a dynamic company based in Austin, Texas, USA.  
+      We specialize in providing cutting-edge online business solutions, including  
+      website development, digital marketing, and e-commerce strategy.  
+      Our mission is to help businesses grow by leveraging modern technology  
+      and creating seamless customer experiences. With a passionate team and a  
+      customer-first approach, we strive to be your long-term partner in success.
+    </p>
+  </section>
+
   <!-- Services -->
-  <section class="services" id="services">
-    <div class="card">
-      <h3>Web Development</h3>
-      <p>Modern, responsive, and scalable websites built with cutting-edge technologies.</p>
-    </div>
-    <div class="card">
-      <h3>E-commerce Solutions</h3>
-      <p>Smart solutions to grow your online business and connect with global markets.</p>
-    </div>
-    <div class="card">
-      <h3>Digital Marketing</h3>
-      <p>Boost your presence with tailored strategies that drive traffic and sales.</p>
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Responsive and modern websites tailored to your business needs.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-bullhorn"></i>
+        <h3>Digital Marketing</h3>
+        <p>SEO, social media, and targeted campaigns to grow your audience.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-shopping-cart"></i>
+        <h3>E-commerce Solutions</h3>
+        <p>Custom online stores with secure payment integrations.</p>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="contact" id="contact">
+  <section id="contact">
     <h2>Contact Us</h2>
     <form>
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
     </form>
-    <div class="contact-info">
-      <p>Email: contact@shinwariecommerce.com</p>
-      <p>Phone: +1 737 000 1234</p>
-      <p>Fax: +1 737 000 5678</p>
-      <p>Address: Austin, Texas, USA</p>
-    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Shinwari E-commerce LLC. All Rights Reserved.</p>
+    📍 Austin, Texas, USA | ✉ contact@shinwariecommerce.com  
   </footer>
+
 </body>
 </html>
