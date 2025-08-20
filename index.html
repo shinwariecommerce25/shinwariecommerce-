@@ -47,9 +47,7 @@
       object-fit: cover;
       z-index: -1;
     }
-    header .content {
-      animation: fadeIn 2s ease-in-out;
-    }
+    header .content {animation: fadeIn 2s ease-in-out;}
     header h2 {font-size: 2.2rem; margin-bottom: 15px;}
     header p {margin-bottom: 20px;}
     .btn {
@@ -93,9 +91,40 @@
     /* Contact */
     #contact p {font-size: 1.1rem; margin-bottom: 10px;}
 
+    /* Contact Form */
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+      text-align: left;
+    }
+    form label {display: block; margin-bottom: 5px; font-weight: bold;}
+    form input, form textarea {
+      width: 100%; padding: 10px; margin-bottom: 15px;
+      border: 1px solid #ccc; border-radius: 5px;
+    }
+    form button {
+      background: #1abc9c;
+      color: #fff;
+      padding: 10px 20px;
+      border: none; border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {background: #16a085;}
+
+    .success-message {
+      display: none;
+      background: #dff0d8;
+      color: #3c763d;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
     /* Footer */
     footer {
-      background: #000; /* شريط أسود */
+      background: #000;
       color: #fff;
       text-align: center;
       padding: 20px;
@@ -103,10 +132,7 @@
     footer p {margin: 5px 0;}
 
     /* Animations */
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
+    @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
     @keyframes fadeInUp {
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
@@ -171,9 +197,19 @@
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Us</h2>
-    <p>📍 Austin, Texas, USA</p>
-    <p>✉ contact@shinwariecommerce.com</p>
-    <p>☎ +1-555-123-4567 | 📠 +1-555-987-6543</p>
+    <div class="success-message" id="successMessage">✅ Message sent successfully!</div>
+    <form id="contactForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 
   <!-- Footer -->
@@ -181,5 +217,20 @@
     <p>📍 Austin, Texas, USA | ✉ contact@shinwariecommerce.com</p>
     <p>&copy; 2025 Shinwari E-commerce LLC. All Rights Reserved.</p>
   </footer>
+
+  <!-- Script -->
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // يمنع الريلود
+      successMessage.style.display = 'block';
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+        form.reset();
+      }, 5000);
+    });
+  </script>
 </body>
 </html>
